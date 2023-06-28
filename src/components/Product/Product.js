@@ -14,13 +14,22 @@ const Product = props => {
     if(currentSizeProduct){
       return (props.basePrice + currentSizeProduct.additionalPrice)
     }        
-    return props.basePrice     
+    return props.basePrice;    
+  }
+  
+  const handleAddToCart = (e) => {
+    e.preventDefault(); 
+    console.log('Summary');
+    console.log('==============');
+    console.log('Name:', props.title);
+    console.log('Price:', getPrice());    
+    console.log('Size:', currentSize);
+    console.log('Color:', currentColor);
   }
 
-  const prepareColorClassName = color =>{
+  const prepareColorClassName = color => {
       return (styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()]);
-  };
-
+  }
 
   return (
     <article className={styles.product}>
@@ -52,7 +61,7 @@ const Product = props => {
               </li>)}              
             </ul>
           </div>
-          <Button className={styles.button}>
+          <Button className={styles.button} onClick={handleAddToCart} >
             <span className="fa fa-shopping-cart" />
           </Button>
         </form>

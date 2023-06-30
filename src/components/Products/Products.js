@@ -7,12 +7,7 @@ const Products = () => {
 
   return (
     <section>
-      {products.map(product => <Product  key={product.id} id={product.id} 
-                                         name={product.name} title={product.title} 
-                                         basePrice={product.basePrice}
-                                         colors={product.colors} sizes={product.sizes} />)}
-      {/* opcjonalnie ze spread-op. ?   <Product key={product.id} {...product}  />)}
-        */}
+      {products.map(product => <Product  key={product.id} {...product} />)}
     </section>
   );
 };
